@@ -1,0 +1,19 @@
+name: Hello World Workflow   # Name of the workflow
+
+on:                         # Defines when this workflow runs
+  push:                     # Runs when code is pushed to repo
+    branches:
+      - main                # Only when pushed to main branch
+  pull_request:             # Also runs when a PR is opened
+
+jobs:                       # Jobs = group of steps to run
+  say-hello:
+    runs-on: ubuntu-latest  # Runs job inside a GitHub-hosted Ubuntu runner
+
+    steps:                  # Steps are executed in order
+      - name: Checkout code
+        uses: actions/checkout@v3   # Downloads repo code into runner
+
+      - name: Print Hello World
+        run: echo "Hello World from GitHub Actions 🚀"
+
